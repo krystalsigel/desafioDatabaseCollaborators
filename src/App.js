@@ -1,23 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import {BaseColaboradores} from './data/database';
+import {useState} from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Collaborator from './components/Collaborator';
+import Search from './components/Search';
+import NewCollaboratorsList from './components/NewCollaborators';
+
+
 
 function App() {
+  const [colaboradores, setColaboradores] = useState(BaseColaboradores);
+  const [searching, setSearching] = useState("");
+
+  // filter
+
+  let result = [];
+  if(!searching) {
+    result = colaboradores;
+  } else {
+    result = colaboradores.filter((colaborador) =>
+    colaborador.nombre
+    .toLocaleLowerCase()
+    .includes(searching.toLocaleLowerCase()))
+  }
+ 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Search setSearching={setSearching}/>
+      <Collaborator colaboradores={colaboradores} setColaboradores={setColaboradores}/>
+      {/* <ul>
+        {colaboradores.map(colaborador =>
+        <li key={colaborador.id.toString()}
+        className="bg-secondary mb-2 rounded text-light">
+          {colaborador.nombre.toLowerCase()} - {colaborador.correo}</li>
+        )}
+      </ul> */}
+      <NewCollaboratorsList colaboradores={result}/>
     </div>
   );
 }
