@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/desafioDatabaseCollaborators/static/css/main.e08edff7.css",
+    "main.js": "/desafioDatabaseCollaborators/static/js/main.cff58273.js",
+    "index.html": "/desafioDatabaseCollaborators/index.html",
+    "main.e08edff7.css.map": "/desafioDatabaseCollaborators/static/css/main.e08edff7.css.map",
+    "main.cff58273.js.map": "/desafioDatabaseCollaborators/static/js/main.cff58273.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e08edff7.css",
+    "static/js/main.cff58273.js"
+  ]
+}
